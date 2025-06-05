@@ -1,0 +1,14 @@
+<h1> Welcome! Add to cart </h1>
+
+<table>
+	<tr>
+		<th> Available Products </th>
+	</tr>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.code %></td>
+	  	<td><%= product.name %></td>
+	  	<td><%= product.price %></td>
+	  </tr>
+	<% end %>
+</table>
