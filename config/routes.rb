@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :landing_page
   resources :products
   resources :carts, only: [:show]
   resources :cart_items, only: [:create, :update, :destroy]
