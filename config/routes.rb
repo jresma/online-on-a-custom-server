@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :landing_page
   resources :products
+
+  devise_for :users
 end
