@@ -12,8 +12,10 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+  - rake db:create db:migrate
 
 * Database initialization
+  - rake db:seed_products db:seed_users
 
 * How to run the test suite
 
