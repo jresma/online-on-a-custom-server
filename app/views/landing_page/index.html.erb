@@ -1,5 +1,12 @@
 <h1> Welcome! Add to cart </h1>
 
+<% flash.each do |key, message| %>
+  <div class="flash <%= key %>">
+    <%= message %>
+  </div>
+<% end %>
+
+<h1> Add to cart </h1>
 <table>
 	<tr>
 		<th> Available Products </th>
@@ -9,6 +16,33 @@
 			<td><%= product.code %></td>
 	  	<td><%= product.name %></td>
 	  	<td><%= product.price %></td>
+			<td>
+	  		<%= button_to "Added to Cart", cart_items_path(product_id: product.id), method: :post %>
+	  	</td>
+	  	<td>
+	  		<%= button_to "Removed from Cart", cart_item_path(product), method: :patch, params: { cart_item: { id: product.id } } %>
+		  </td>
 	  </tr>
 	<% end %>
 </table>
+
+<h2><a href="/products/">View Products</a><h2>
+
+<% if @cart_items.present? %>
+	<h1>Total Amount: <%= @cart_items.sum(&:total_price) %></h1>
+	<h1> Items in cart </h1>
+	<table>
+		<tr>
+			<th> Product name </th>
+			<th> Quantity </th>
+			<th> Price </th>
+		</tr>
+		<% @cart_items.each do |item| %>
+			<tr>
+				<td><%= item.product.name %></td>
+		  	<td><%= item.quantity %></td>
+		  	<td><%= item.total_price %></td>
+		  </tr>
+		<% end %>
+	</table>
+<% end %>

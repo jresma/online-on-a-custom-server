@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
   root "landing_page#index"
 
+  devise_for :users
+
   resources :landing_page
   resources :products
-
-  devise_for :users
+  resources :carts, only: [:show]
+  resources :cart_items, only: [:create, :update, :destroy]
 end

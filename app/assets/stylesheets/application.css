@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+.flash.notice {
+	background-color: #B9D9EB;
+	color: #155724;
+	padding: 10px;
+}
