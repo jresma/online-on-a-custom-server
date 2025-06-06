@@ -1,4 +1,9 @@
-<h2><%= link_to "View product", products_path %></h2>
+<% if user_signed_in? %>
+	<h2><%= link_to "View product", products_path %></h2>
+	<%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
 
 <h1> Welcome! Add to cart </h1>
 
