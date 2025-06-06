@@ -6,11 +6,11 @@ class CartItem < ApplicationRecord
 
   def total_price
     case product.code
-    when 'GR1'
+    when "GR1"
       bogo
-    when 'SR1'
+    when "SR1"
       bulk_discount
-    when 'CF1'
+    when "CF1"
       bulk_discount_rate
     else
       orig_price
